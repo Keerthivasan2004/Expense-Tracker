@@ -9,7 +9,7 @@ A full-stack expense tracking web application built with React, Node.js, Express
 ## 📸 Screenshots
 
 > Dashboard showing expense summary, recent transactions, and add expense form.
-
+![Dashboard](./screenshot.png)
 ---
 
 ## ✨ Features
