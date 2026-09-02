@@ -12,8 +12,9 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   ssl: {
-    ca: fs.readFileSync(path.join(__dirname, '../ca.pem'))
-  }
+  ca: fs.readFileSync(path.join(__dirname, '../ca.pem')),
+  rejectUnauthorized: false
+}
 });
 
 const promisePool = pool.promise();
