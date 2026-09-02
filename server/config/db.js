@@ -1,4 +1,6 @@
 const mysql = require('mysql2');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 
 const pool = mysql.createPool({
@@ -10,7 +12,7 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   ssl: {
-    rejectUnauthorized: false
+    ca: fs.readFileSync(path.join(__dirname, '../ca.pem'))
   }
 });
 
