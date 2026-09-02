@@ -10,6 +10,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/test-db', async (req, res) => {
+  try {
+    const db = require('./config/db');
+    const [rows] = await db.query('SELECT 1');
+    res.json({ status: 'connected' });
+  } catch (err) {
+    res.json({ status: 'error', message: err.message });
+  }
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/expenses', expenseRoutes);
 
